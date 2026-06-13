@@ -16,11 +16,11 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <div className="container-page flex h-20 items-center justify-between gap-4">
-        <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Imperial Security & Consultants" className="h-12 w-12 shrink-0 object-contain" />
+        <Link to="/" className="flex min-w-0 items-center gap-4" onClick={() => setOpen(false)}>
+          <img src={logo} alt="Imperial Security & Consultants" className="h-16 w-16 shrink-0 object-contain" />
           <div className="min-w-0 leading-tight">
-            <div className="truncate font-display text-base font-bold text-primary sm:text-lg">Imperial Security</div>
-            <div className="truncate text-[11px] font-medium tracking-wider text-muted-foreground uppercase">& Consultants</div>
+            <div className="truncate font-display text-lg font-bold text-primary sm:text-xl">Imperial Security</div>
+            <div className="truncate text-xs font-medium tracking-wider text-muted-foreground uppercase">& Consultants</div>
           </div>
         </Link>
 
