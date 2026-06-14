@@ -15,9 +15,9 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
-      <div className="container-page flex h-20 items-center justify-between gap-4">
+      <div className="container-page flex h-24 items-center justify-between gap-4">
         <Link to="/" className="flex min-w-0 items-center gap-4" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Imperial Security & Consultants" className="h-20 w-20 shrink-0 object-contain" />
+          <img src={logo} alt="Imperial Security & Consultants" className="h-24 w-24 shrink-0 object-contain" />
           <div className="min-w-0 leading-tight">
             <div className="truncate font-display text-xl font-bold text-primary sm:text-2xl">Imperial Security</div>
             <div className="truncate text-sm font-medium tracking-wider text-muted-foreground uppercase">& Consultants</div>
