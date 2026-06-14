@@ -69,8 +69,8 @@ function HomePage() {
               {[
                 { icon: ShieldCheck, label: "MoD Registered", value: "Licensed" },
                 { icon: Clock, label: "Response", value: "24/7" },
-                { icon: Users, label: "Trained Officers", value: "500+" },
-                { icon: Award, label: "Years of Service", value: "15+" },
+                { icon: Users, label: "Trained Officers", value: "120+" },
+                { icon: Award, label: "Years of Service", value: "20+" },
               ].map((s, i) => (
                 <div
                   key={i}
