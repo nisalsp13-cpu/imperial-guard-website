@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Award, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { MOD_REG } from "@/components/site/Footer";
 import { SERVICES } from "@/lib/services";
+import heroBg from "@/assets/hero-guard.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,75 +17,86 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-hero-gradient text-primary-foreground">
+      {/* HERO — full-viewport background */}
+      <section className="relative h-screen min-h-[640px] w-full overflow-hidden text-white">
+        {/* Fixed background image */}
         <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255,255,255,0.10), transparent 45%)",
-          }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+          style={{ backgroundImage: `url(${heroBg.url})` }}
+          aria-hidden
         />
-        <div className="container-page relative grid gap-12 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase backdrop-blur">
+        {/* Dark overlays for readability — stronger on the left, lighter on the right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(7,15,38,0.85) 0%, rgba(7,15,38,0.65) 35%, rgba(7,15,38,0.35) 60%, rgba(7,15,38,0.15) 100%)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-black/20 md:bg-transparent" aria-hidden />
+
+        {/* Content */}
+        <div className="container-page relative z-10 flex h-full flex-col justify-center">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider uppercase backdrop-blur">
               <ShieldCheck className="h-4 w-4 text-[color:var(--gold)]" />
               Ministry of Defence Registered
             </div>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Elite security,<br />
-              <span className="text-[color:var(--gold)]">disciplined</span> protection.
+            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl">
+              Imperial Security<br />
+              <span className="text-[color:var(--gold)]">&amp; Consultants</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
-              Imperial Security & Consultants delivers military-grade protection for Sri Lanka's most demanding homes,
-              businesses, and high-value operations — backed by ex-Air Force leadership and 24/7 vigilance.
+            <p className="mt-6 max-w-xl text-lg font-medium text-white/90 drop-shadow-md sm:text-xl">
+              Professional Protection, Unmatched Reliability.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/quote"
-                className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-primary shadow-elegant transition-smooth hover:-translate-y-0.5 hover:shadow-glow"
+                className="inline-flex items-center gap-2 rounded-lg bg-[color:var(--gold)] px-7 py-4 text-sm font-bold uppercase tracking-wide text-[#0b1230] shadow-elegant transition-smooth hover:-translate-y-0.5 hover:brightness-110 sm:text-base"
               >
-                Get a Free Quote <ArrowRight className="h-4 w-4" />
+                Request a Consultation <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-smooth hover:bg-white/15"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition-smooth hover:bg-white/15 sm:text-base"
               >
                 Explore Services
               </Link>
             </div>
 
-            <div className="mt-10 rounded-xl border border-white/15 bg-white/5 p-5 backdrop-blur">
-              <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[color:var(--gold)]">
+            <div className="mt-10 hidden max-w-sm rounded-xl border border-white/15 bg-white/5 p-4 backdrop-blur sm:block">
+              <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[color:var(--gold)]">
                 MoD Registration No.
               </div>
-              <div className="mt-1 font-mono text-sm font-semibold sm:text-base break-all">{MOD_REG}</div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-6 rounded-3xl bg-white/5 blur-2xl" />
-            <div className="relative grid grid-cols-2 gap-4">
-              {[
-                { icon: ShieldCheck, label: "MoD Registered", value: "Licensed" },
-                { icon: Clock, label: "Response", value: "24/7" },
-                { icon: Users, label: "Trained Officers", value: "120+" },
-                { icon: Award, label: "Years of Service", value: "20+" },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-xl transition-smooth hover:bg-white/15"
-                >
-                  <s.icon className="h-7 w-7 text-[color:var(--gold)]" />
-                  <div className="mt-4 font-display text-3xl font-bold">{s.value}</div>
-                  <div className="mt-1 text-xs font-medium tracking-wider uppercase text-primary-foreground/70">{s.label}</div>
-                </div>
-              ))}
+              <div className="mt-1 font-mono text-sm font-semibold break-all">{MOD_REG}</div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* STATS STRIP */}
+      <section className="bg-hero-gradient text-primary-foreground">
+        <div className="container-page grid grid-cols-2 gap-4 py-12 lg:grid-cols-4">
+          {[
+            { icon: ShieldCheck, label: "MoD Registered", value: "Licensed" },
+            { icon: Clock, label: "Response", value: "24/7" },
+            { icon: Users, label: "Trained Officers", value: "120+" },
+            { icon: Award, label: "Years of Service", value: "20+" },
+          ].map((s, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-xl transition-smooth hover:bg-white/15"
+            >
+              <s.icon className="h-7 w-7 text-[color:var(--gold)]" />
+              <div className="mt-4 font-display text-3xl font-bold">{s.value}</div>
+              <div className="mt-1 text-xs font-medium tracking-wider uppercase text-primary-foreground/70">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* SERVICES OVERVIEW */}
       <section className="container-page py-20">
