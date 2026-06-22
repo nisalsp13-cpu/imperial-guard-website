@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Award, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { MOD_REG } from "@/components/site/Footer";
 import { SERVICES } from "@/lib/services";
-import heroBg from "@/assets/hero-guard.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
