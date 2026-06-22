@@ -83,11 +83,8 @@ function AboutPage() {
                   <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold tracking-wider uppercase text-primary">
                     <Award className="h-3.5 w-3.5" /> Ex-Sri Lanka Air Force
                   </div>
-                  <div className="mt-3 font-display text-lg font-bold">Priyantha Perera</div>
-                  <div className="text-sm text-muted-foreground">
-                    Managing Director<br />
-                    Imperial Security & Consultants (Pvt) Ltd
-                  </div>
+                  <div className="mt-3 font-display text-lg font-bold">Managing Director</div>
+                  <div className="text-sm text-muted-foreground">Imperial Security & Consultants (Pvt) Ltd</div>
                 </div>
               </div>
             </div>
