@@ -21,7 +21,7 @@ function HomePage() {
         {/* Fixed background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
-          style={{ backgroundImage: `url(${heroBg.url})` }}
+          style={{ backgroundImage: "url('/assets/hero-guard.png')" }}
           aria-hidden
         />
         {/* Dark overlays for readability — stronger on the left, lighter on the right */}
