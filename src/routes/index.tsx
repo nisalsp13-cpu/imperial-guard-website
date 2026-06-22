@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Award, Users, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { MOD_REG } from "@/components/site/Footer";
 import { SERVICES } from "@/lib/services";
-import heroBg from "@/assets/hero-guard.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +21,7 @@ function HomePage() {
         {/* Fixed background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
-          style={{ backgroundImage: `url(${heroBg.url})` }}
+          style={{ backgroundImage: "url('/assets/hero-guard.png')" }}
           aria-hidden
         />
         {/* Dark overlays for readability — stronger on the left, lighter on the right */}
